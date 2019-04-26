@@ -22,13 +22,17 @@
           let wechatVersion = wechatInfo[1];
           let version = navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/);
           if (+wechatVersion.replace(/\./g, '') >= 674 && +version[1] >= 12) {
-            window.scrollTo(
+            // 需要加个延迟
+            setTimeout(function(){
+              window.scrollTo(
               0,
               Math.max(
                 document.body.clientHeight,
                 document.documentElement.clientHeight
               )
             );
+            },100)
+            
           }
         },
         false
